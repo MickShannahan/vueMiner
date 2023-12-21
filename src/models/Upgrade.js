@@ -11,7 +11,9 @@ export class Upgrade{
     this.qty = data.qty
     this.multiplier = data.multiplier
     this.price = data.price
-    this.priceIncrease = data.priceIncrease  || 2
     this.picture = data.picture
+  }
+  get priceIncrease(){
+    return Math.round((this.price / 5) + (this.price *(this.qty*.1)) )
   }
 }

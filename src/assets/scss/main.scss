@@ -4,20 +4,63 @@
 
 body {
   overscroll-behavior: none;
+  background-color: var(--bs-page);
+  background-image: url('src/assets/img/cw-mesh-gradient1.png');
+  background-size: cover;
+  background-position: center;
+  animation: background-shift 30s linear infinite;
 }
 
 #app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--bs-page);
+  backdrop-filter: hue-rotate(160deg);
+  animation: hue-shift 400s alternate infinite;
+ 
+}
+@keyframes background-shift {
+  0%{
+    background-image: url('src/assets/img/cw-mesh-gradient2.png');
+  }
+  20%{
+  background-image: url('src/assets/img/cw-mesh-gradient1.png');
+  }
+  80%{
+    background-image: url('src/assets/img/cw-mesh-gradient3.png');
+  }
+  100%{
+    background-image: url('src/assets/img/cw-mesh-gradient2.png');
+  }
 }
 
-main {
-  flex-grow: 1;
+@keyframes hue-shift {
+  0%{
+    backdrop-filter: hue-rotate(160deg);
+  }
+  100%{
+    backdrop-filter: hue-rotate(20deg);
+  }
+  
 }
 
 a {
   text-decoration: none;
+}
+
+.bouncy-click{
+  transition: all .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  &:active{
+    transform: scale(1.1);
+  }
+}
+
+@keyframes ball-bounce {
+  0%{
+    transform: translateY(50px);
+  }
+  100%{
+    transform: translateY(-55px);
+  }
 }
 
